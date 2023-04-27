@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const workoutsApiController = {};
 workoutsApiController.bodyParts = (req, res, next) => {
+  console.log("this is the bodyparts middleware")
   const headers = {
     'X-Api-Key': 'hMjimYjoY44UR/YZtp4wvQ==3eHZLccZsEchiSoI',
   };

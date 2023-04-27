@@ -1,0 +1,50 @@
+
+body {
+  background-color: aqua;
+}
+
+
+.things{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.top{
+  display: inline-block;
+  margin-left: 10px;
+}
+.lonely-button{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.card{
+  border: 1px solid black;
+  // display:inline-block;
+  height: 25rem;
+  width: 19rem;
+  overflow: auto;
+  margin-left: 5px;
+  margin-top: 5px;
+  
+}
+.name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.name p {
+  text-align: center;
+}
+.bottom{
+  padding-left: 7px;
+
+}
+input{
+  display:block;
+  margin-bottom: 10px;
+  width: 20rem;
+  height: 1.5rem;
+}

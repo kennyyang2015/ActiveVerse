@@ -3,19 +3,24 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
 const workoutsApiController = require('./controllers/workoutsApiController');
+const dBController = require('./controllers/mongooseControllers');
+
 app.use(express.json());
 
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get('/getAll', dBController.getWorkouts, (req, res) => {
+  return res.status(200).json(res.locals.allWorkouts);
 });
 
-// fetch('https://api.api-ninjas.com/v1/exercises?muscle=biceps')
-//   .then((response) => response.json())
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log('failed bro'));
+app.delete("/deleteOne", dBController.deleteWorkouts, (req, res) => {
+  return res.status(200).json(res.locals.deleted);
+});
+
+app.post('/newWorkout', dBController.addMyWorkout, (req, res) => {
+  console.log('success in adding working in server');
+  return res.status(200).json(res.locals.added);
+});
 app.post('/:muscle', workoutsApiController.bodyParts, (req, res) => {
-  // console.log("yooooooooooo")
+  console.log('yooooooooooo');
   return res.status(200).json(res.locals.workoutdata);
 });
 
@@ -27,7 +32,7 @@ app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
-    message: { err: 'An error occurred' },
+    message: { err: 'An error global occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
