@@ -41,8 +41,7 @@ app.use((err, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://kennyyang2015:EoqwT5hAf7Mzi8Qm@cluster0.vrl1svl.mongodb.net/?retryWrites=true&w=majority'
-  )
+    'mongodb+srv://kennyyang2015:EoqwT5hAf7Mzi8Qm@cluster0.vrl1svl.mongodb.net/?retryWrites=true&w=majority')
   .then(() => {
     console.log('connected to mgdb');
     app.listen(port, () => {
